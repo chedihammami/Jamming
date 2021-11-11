@@ -8,7 +8,7 @@ pipeline {
      stages { 
           stage('build') {
             steps {
-                 echo "the current branch is ${BRANCH_NAME}"
+                 echo "the current branch is ${env.BRANCH_NAME}"
                  echo "Building with version ${NEW_VERSION}"
             }     
           }
