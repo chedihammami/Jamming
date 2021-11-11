@@ -1,21 +1,16 @@
 pipeline {
      agent any
-     environment {
-          NEW_VERSION = '1.3.0'
-          
-     }
-     
      stages { 
           stage('build') {
-            steps {
-                 echo "the current branch is ${env.BRANCH_NAME}"
-                 echo "Building with version ${NEW_VERSION}"
+            steps {    
+                 withCredentials([usernamePassword(credentialsId: 'dockerhub' , usernameVariable: USER , passwordVariable: PASS)]){
+                    echo "Building the docker image from Dockerfile"
+                    sh "docker build -t chedihammami/demo:2.0 ."
+                    sh "echo ${PASS} | docker login -u ${USER} --password-stdin" 
+                    sh "docker push chedihammami/demo:2.0"    
+                  }
+                 
             }     
-          }
-          stage('test') {
-               steps {
-                    echo 'testing the app'
-               }
           }
           stage('deploy') {
                steps {
