@@ -1,6 +1,6 @@
 .vscode/
 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
-node_modules
-script.groovy
-jenkinsfile
-Dockerfile
+./node_modules
+./script.groovy
+./jenkinsfile
+./Dockerfile
