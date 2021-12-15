@@ -1,5 +1,5 @@
 const CLIENT_ID = 'c9e1239b113849e299383a1174dc3316' ; 
-const REDIRECT_URI = 'http://localhost:3000' ; 
+const REDIRECT_URI = 'https://jamming-heroku.herokuapp.com' ; 
 export const spotify = { 
   ACCESS_TOKEN : '' , 
    getAccessToken()
